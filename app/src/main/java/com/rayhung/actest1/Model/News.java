@@ -5,7 +5,7 @@ package com.rayhung.actest1.Model;
  */
 
 public interface News {
-    String getId();
+    int getId();
     String getNewsTitle();
     String getShortTitle();
     String getPublishAtTime();

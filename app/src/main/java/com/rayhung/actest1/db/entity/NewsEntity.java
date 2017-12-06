@@ -1,6 +1,7 @@
 package com.rayhung.actest1.db.entity;
 
 import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.PrimaryKey;
 
 import com.rayhung.actest1.Model.News;
 
@@ -11,7 +12,8 @@ import com.rayhung.actest1.Model.News;
  @Entity(tableName = "news")
 public class NewsEntity implements News{
 
-    private String id;
+    @PrimaryKey
+    private int id;
     private String newsTitle;
     private String shortTitle;
     private String publishAtTime;
@@ -24,11 +26,11 @@ public class NewsEntity implements News{
     private String linkUrl;
 
     @Override
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -125,7 +127,7 @@ public class NewsEntity implements News{
 
     }
 
-    public NewsEntity(String id, String newsTitle, String shortTitle, String publishAtTime, String description, String sourceID, String createAtTime, String updateAtTime, String content, String thumbnailsUrl, String linkUrl) {
+    public NewsEntity(int id, String newsTitle, String shortTitle, String publishAtTime, String description, String sourceID, String createAtTime, String updateAtTime, String content, String thumbnailsUrl, String linkUrl) {
         this.id = id;
         this.newsTitle = newsTitle;
         this.shortTitle = shortTitle;
