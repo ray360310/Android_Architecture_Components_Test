@@ -23,5 +23,4 @@ public class BindingAdapters {
                 .load(imageUrl)
                 .into(imageView);
     }
-
 }

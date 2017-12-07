@@ -4,6 +4,9 @@
 
     <data>
         <variable
+            name="isLoading"
+            type="boolean"/>
+        <variable
             name="news"
             type="com.rayhung.actest1.Model.News"/>
         <variable
@@ -16,7 +19,7 @@
         android:layout_height="wrap_content">
 
         <android.support.constraint.ConstraintLayout
-            android:id="@+id/main_news_item_mainclayout"
+            android:id="@+id/main_mainclayout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
@@ -33,7 +36,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
-                android:id="@+id/main_news_item_titletxw"
+                android:id="@+id/main_titletxw"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="0dp"
@@ -47,7 +50,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <LinearLayout
-                android:id="@+id/main_news_item_newslinlayout"
+                android:id="@+id/main_newslinlayout"
                 android:layout_width="0dp"
                 android:layout_height="80dp"
                 android:layout_marginLeft="0dp"
@@ -59,10 +62,10 @@
                 android:weightSum="3"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/main_news_item_titletxw">
+                app:layout_constraintTop_toBottomOf="@+id/main_titletxw">
 
                 <ImageView
-                    android:id="@+id/main_news_item_newsimg1"
+                    android:id="@+id/main_newsimg1"
                     android:layout_width="120dp"
                     android:layout_height="80dp"
                     android:elevation="10dp"
@@ -70,7 +73,7 @@
                     app:imageUrl="@{news.thumbnailsUrl}" />
 
                 <ImageView
-                    android:id="@+id/main_news_item_newsimg2"
+                    android:id="@+id/main_newsimg2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -80,7 +83,7 @@
                     android:visibility="invisible" />
 
                 <ImageView
-                    android:id="@+id/main_news_item_newsimg3"
+                    android:id="@+id/main_newsimg3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -91,7 +94,7 @@
             </LinearLayout>
 
             <android.support.constraint.ConstraintLayout
-                android:id="@+id/main_news_item_ballclayout"
+                android:id="@+id/main_ballclayout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
@@ -103,11 +106,12 @@
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/main_news_item_newslinlayout"
-                app:layout_constraintVertical_bias="0.5">
+                app:layout_constraintTop_toBottomOf="@+id/main_newslinlayout"
+                app:layout_constraintVertical_bias="0.5"
+                app:visibleGone="@{isLoading}">
 
                 <TextView
-                    android:id="@+id/main_news_item_balltxw"
+                    android:id="@+id/main_balltxw"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="0dp"
@@ -123,60 +127,7 @@
                     app:layout_constraintVertical_bias="0.5" />
             </android.support.constraint.ConstraintLayout>
 
-            <TextView
-                android:id="@+id/main_news_item_timetxw"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginTop="8dp"
-                android:text="5小時前"
-                android:textColor="@android:color/darker_gray"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintRight_toLeftOf="@+id/main_news_item_likeclayout"
-                app:layout_constraintTop_toBottomOf="@+id/main_news_item_newslinlayout"
-                app:layout_constraintVertical_bias="0.0" />
-
-            <android.support.constraint.ConstraintLayout
-                android:id="@+id/main_news_item_likeclayout"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:layout_marginRight="0dp"
-                android:layout_marginTop="8dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/main_news_item_newslinlayout"
-                app:layout_constraintVertical_bias="0.5">
-
-                <ImageView
-                    android:id="@+id/main_news_item_likeimg"
-                    android:layout_width="15dp"
-                    android:layout_height="15dp"
-                    android:src="@mipmap/ic_launcher"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/main_news_item_likeamount"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="8dp"
-                    android:text="66666"
-                    android:textColor="@android:color/darker_gray"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintLeft_toRightOf="@+id/main_news_item_likeimg"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-            </android.support.constraint.ConstraintLayout>
-
         </android.support.constraint.ConstraintLayout>
 
     </android.support.constraint.ConstraintLayout>
-
-
 </layout>
